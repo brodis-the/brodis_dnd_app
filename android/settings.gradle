@@ -1,0 +1,3 @@
+rootProject.name = 'brodis_dnd_app'
+
+include ':app'
