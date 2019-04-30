@@ -1,49 +1,67 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet,
+        View,
+        Text} from 'react-native';
+import MenuButton from './src/Components/MenuButton'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+export default class App extends Component {
 
-type Props = {};
-export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+      <View style={styles.body}>
+
+        <View style={styles.line}>
+          <Text style={styles.headerPage}>Hello World!</Text>
+        </View>
+        
+        {/* Primeira Linha */}
+        <View style={styles.line}>
+          <MenuButton title='Button 1' bg='blue' textColor='white' />
+          <MenuButton title='Button 2' bg='red' />
+        </View>
+
+        {/* Segunda Linha */}
+        <View style={styles.line}>
+          <MenuButton title='Button 3' bg='green' />
+          <MenuButton title='Button 4' bg='brown' textColor='white' />
+        </View>
+
+        {/* Terceira Linha */}
+        <View style={styles.line}>
+          <MenuButton title='Button 5' bg='black' textColor='white' />
+          <MenuButton title='Button 6' bg='purple' />
+        </View>
+
+        {/* Quarta linha */}
+        <View style={styles.line}>
+          <MenuButton title='Button 8' bg='white' />
+          <MenuButton title='Button 7' bg='yellow' textColor='green' />
+        </View>
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  body: {
+    flex: 1
+  },
+  line: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'row'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  headerPage: {
+    paddingTop: 40,
+    backgroundColor: 'orange',
+    color: 'black',
+    fontSize: 50,
+    flex: 1,
+    textAlign: 'center'
+  }
 });
